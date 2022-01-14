@@ -32,8 +32,8 @@ def prepare_base_model(config_path, params_path):
     full_model = prepare_model(
         model,
         CLASSES=params["CLASSES"],
-        freeze_all=True,
-        freeze_till=None,
+        freeze_all=False,
+        freeze_till=1,
         learning_rate=params["LEARNING_RATE"]
     )
 
@@ -42,13 +42,14 @@ def prepare_base_model(config_path, params_path):
         artifacts["UPDATED_BASE_MODEL_NAME"]
     )
 
-    def _log_model_summary(full_model):
+    def log_model_summary(full_model):
         with io.StringIO() as stream:
             full_model.summary(print_fn=lambda x: stream.write(f"{x}\n"))
             summary_str = stream.getvalue()
         return summary_str
-
-    logging.info(f"full model summary: \n{_log_model_summary(full_model)}")
+    
+    logging.info(f"full model summary: \n{log_model_summary(full_model)}")
+   # logging.info(f"{full_model.summary()}")
 
     full_model.save(update_base_model_path)
     

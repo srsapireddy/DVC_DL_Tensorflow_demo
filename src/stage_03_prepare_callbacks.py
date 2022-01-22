@@ -3,7 +3,6 @@ from src.utils.callbacks import create_and_save_tensorboard_callback, create_and
 import argparse
 import pandas as pd
 import os
-import shutil
 from tqdm import tqdm
 import logging
 

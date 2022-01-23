@@ -1,5 +1,5 @@
 from src.utils.all_utils import read_yaml, create_directory
-from src.utils.callbacks import create_and_save_tensorboard_callback, create_and_save_checkpoint_Callback 
+from src.utils.callbacks import create_and_save_tensorboard_callback, create_and_save_checkpoint_callback 
 import argparse
 import pandas as pd
 import os
@@ -31,7 +31,7 @@ def prepare_callbacks(config_path, params_path):
     ])
 
     create_and_save_tensorboard_callback(callbacks_dir, tensorboard_log_dir)
-    create_and_save_checkpoint_Callback(callbacks_dir, checkpoint_dir)
+    create_and_save_checkpoint_callback(callbacks_dir, checkpoint_dir)
 
 
 if __name__ == '__main__':

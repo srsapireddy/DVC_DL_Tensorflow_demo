@@ -34,7 +34,7 @@ def train_model(config_path, params_path):
         data_dir=artifacts["DATA_DIR"],
         IMAGE_SIZE=tuple(params["IMAGE_SIZE"][:-1]),
         BATCH_SIZE=params["BATCH_SIZE"],
-        do_data_augmentation=params["AUGMENTATION"]
+        do_data_augmentation=params["AUGUMENTATION"]
     )
 
     steps_per_epoch = train_generator.samples // train_generator.batch_size
@@ -49,14 +49,14 @@ def train_model(config_path, params_path):
         callbacks=callbacks
     )
     logging.info(f"training completed")
-
+"""
     trained_model_dir = os.path.join(artifacts_dir, artifacts["TRAINED_MODEL_DIR"])
     create_directory([trained_model_dir])
 
     model_file_path = get_unique_path_to_save_model(trained_model_dir)
     model.save(model_file_path)
     logging.info(f"trained model is saved at: {model_file_path}")
-
+"""
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
